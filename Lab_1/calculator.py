@@ -11,6 +11,10 @@ def sum(m, n):
 def divide(m, n):
   result = 0
   coeff = 1
+  
+  if n == 0:
+    raise Exception("division by zero")
+  
   if m < 0:
     m = -m
     coeff = -1
@@ -19,13 +23,11 @@ def divide(m, n):
     n = -n
     coeff = -coeff
 
-  while m > 0:
+  while m >= n:
     result += 1
     m -= n
+    
   return result * coeff
 
-print(sum(-4,-2))
-print(divide(-4, -2))
-print(divide(-4, 2))
-print(divide(4, -2))
-print(divide(4, 2))
+
+print(divide(4, 3))
